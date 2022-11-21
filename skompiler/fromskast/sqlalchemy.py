@@ -196,8 +196,7 @@ def _merge(tbl1, tbl2):
 def _get_onclause(tbl_1, tbl_2):
     if len(tbl_1.keys_) > 1:
         return and_(*[tbl_1_key==tbl_2_key for tbl_1_key, tbl_2_key in zip(tbl_1.keys_, tbl_2.keys_)])
-    key_col = tbl_1.keys_[0].name
-    return tbl_1.columns[key_col] == tbl_2.columns[key_col]
+    return tbl_1.keys_[0] == tbl_2.keys_[0]
 
 
 Result = namedtuple('Result', 'cols from_obj')
